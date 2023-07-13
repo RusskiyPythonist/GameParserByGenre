@@ -1,7 +1,6 @@
 import re
 import aiohttp
 import asyncio
-from time import perf_counter
 from bs4 import BeautifulSoup
 
 games_list = []
@@ -27,18 +26,18 @@ async def main(page_num: int):
 
 
 if __name__ == '__main__':
-    page_num = int(input('Введите кол-во страниц: '))
-    start = perf_counter()
+    try:
+        page_num = int(input('Введите кол-во страниц: '))
+        if page_num > 0 and page_num <=23920:
+            asyncio.run(main(page_num))
+            genre = input('Введите жанр игры: ')
+            for i in range(len(games_list)):
+                if genre in games_list[i][2]:
+                    games_list_new.append([games_list[i][0], games_list[i][1], games_list[i][2]])
 
-    if page_num > 0 and page_num <=23920:
-        asyncio.run(main(page_num))
-        genre = input('Введите жанр игры: ')
-        for i in range(len(games_list)):
-            if genre in games_list[i][2]:
-                games_list_new.append([games_list[i][0], games_list[i][1], games_list[i][2]])
-
-        for i in range(len(games_list_new)):
-            print(f'{i + 1}. Название игры - {games_list_new[i][0]} | Описание игры - {games_list_new[i][1]} | Жанр - {games_list_new[i][2]}')
-    else:
-        print('Лимит: 23920 страниц.')
-    print(f'time: {(perf_counter() - start):.02f}')
+            for i in range(len(games_list_new)):
+                print(f'{i + 1}. Название игры - {games_list_new[i][0]} | Описание игры - {games_list_new[i][1]} | Жанр - {games_list_new[i][2]}')
+        else:
+            print('Лимит: 23920 страниц.')
+    except:
+        print('Возникла ошибка программы. Попробуйте ещё раз.')
