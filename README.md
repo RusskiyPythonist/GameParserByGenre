@@ -25,7 +25,7 @@
 python main.py
 ```
 
-Либо же, запустить файл **main.py** в вашей IDE.
+Либо же, запустить файл **main.py** в Вашей IDE.
 
 ### Mac
 
@@ -35,7 +35,7 @@ python main.py
 python main.py
 ```
 
-Либо же, запустить файл **main.py** в вашей IDE.
+Либо же, запустить файл **main.py** в Вашей IDE.
 
 ### Linux
 
@@ -45,4 +45,4 @@ python main.py
 python main.py
 ```
 
-Либо же, запустить файл **main.py** в вашей IDE.
+Либо же, запустить файл **main.py** в Вашей IDE.
